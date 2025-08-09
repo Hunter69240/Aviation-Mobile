@@ -15,7 +15,7 @@ export default function DrawerNavigator() {
     <Drawer.Navigator
       screenOptions={({ navigation }) => ({
         drawerPosition: "right",
-        header: () => <Header navigation={navigation} title="My Apps" />,
+        header: () => <Header navigation={navigation} title="App Name" />,
       })}
     >
       {/* Hidden from drawer by drawerItemStyle */}

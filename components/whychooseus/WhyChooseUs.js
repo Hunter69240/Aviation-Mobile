@@ -19,8 +19,41 @@ export default function WhyChooseUs(){
             </Text> 
 
             <View style={styles.wrapper}>
-                <Card/>
-                <Card/>
+                <Card 
+                icon="shield"
+                heading="Uncompromised Safety"
+                desc="Our aircraft adhere to the most stringent safety standards with regular maintenance checks and experienced crew."
+                />
+
+                <Card 
+                icon="clock"
+                heading="Time Efficiency"
+                desc="Skip long security lines and wait times. Arrive minutes before your flight and depart on your schedule."
+                />
+
+                <Card 
+                icon="plane"
+                heading="Aircraft Variety"
+                desc="From light jets to ultra-long-range aircraft, choose the perfect match for your journey's requirements."
+                />
+
+                <Card 
+                icon="card"
+                heading="Transparent Pricing"
+                desc="No hidden fees or surprise costs. Our pricing is straightforward and competitive for the value provided."
+                />
+
+                <Card 
+                icon="leaf"
+                heading="Sustainable Options"
+                desc="Choose eco-friendly alternatives with our carbon offset program and Sustainable Aviation Fuel options."
+                />
+
+                <Card 
+                icon="headphone"
+                heading="24/7 Concierge"
+                desc="Our dedicated team is available around the clock to assist with any requests or changes to your itinerary."
+                />
             </View>
         </View>
     )
