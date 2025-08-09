@@ -1,18 +1,32 @@
 import React from "react";
-import { View, Text, StyleSheet, ImageBackground } from "react-native";
+import { View, Text, StyleSheet, ImageBackground, ScrollView } from "react-native";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 import Booking from "../components/Booking";
+import WhyChooseUs from "../components/WhyChooseUs";
 
 export default function Home() {
   return (
     <ImageBackground
       source={require("../assets/Images/Bg-Image.jpg")}
       style={styles.background}
-      imageStyle={{ opacity: 0.4 }} // optional: dim image
+      imageStyle={{ opacity: 0.4 }} 
     >
-      <View style={styles.container}>
-        <Text style={styles.text}>Home Screen</Text>
-        <Booking />
-      </View>
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+        <View style={styles.maintxt}>
+          <Text style={styles.text}>
+            One-Stop Destination for Private Jets
+          </Text>
+        </View>
+
+        <View style={styles.Wrapper}>
+          <Booking style={styles.booking}/>
+        </View>
+        
+        <View style={styles.Wrapper}>
+          <WhyChooseUs/>
+        </View>
+      </ScrollView>
     </ImageBackground>
   );
 }
@@ -23,13 +37,26 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
   },
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+  scrollContainer: {
+    paddingVertical: hp('5%'),  // optional vertical padding inside ScrollView
+    alignItems: 'center',       // center children horizontally
   },
+  maintxt: {
+    width: '100%',
+    paddingHorizontal: 20,
+    marginBottom: 20,
+    marginVertical:hp('7%')
+  },
+  
   text: {
-    color: "red",
-    fontSize: 18,
+    color: 'white',
+    fontSize: wp('8%'),
+    textAlign: 'center',
+    fontWeight:'bold'
   },
+  Wrapper:{
+    marginVertical:hp('5%'),
+    alignItems:'center',
+  },
+  
 });
