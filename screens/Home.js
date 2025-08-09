@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, ImageBackground, ScrollView } from "react-nativ
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 import Booking from "../components/Booking";
-import WhyChooseUs from "../components/WhyChooseUs";
+import WhyChooseUs from "../components/whychooseus/WhyChooseUs";
 
 export default function Home() {
   return (
