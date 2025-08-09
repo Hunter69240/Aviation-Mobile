@@ -4,6 +4,8 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 
 import Booking from "../components/Booking";
 import WhyChooseUs from "../components/whychooseus/WhyChooseUs";
+import EcoFriendlyAv from "../components/EcoFriendlyAv/EcoFriendlyAv";
+
 
 export default function Home() {
   return (
@@ -26,6 +28,11 @@ export default function Home() {
         <View style={styles.Wrapper}>
           <WhyChooseUs/>
         </View>
+
+        <View style={styles.LWrapper}>
+          <EcoFriendlyAv />
+        </View>
+        
       </ScrollView>
     </ImageBackground>
   );
@@ -58,5 +65,11 @@ const styles = StyleSheet.create({
     marginVertical:hp('5%'),
     alignItems:'center',
   },
+  LWrapper:{
+    marginVertical:hp('5%'),
+    alignItems:'flex-start',
+    width: '100%',
+    marginLeft: wp('10%'),
+  }
   
 });
