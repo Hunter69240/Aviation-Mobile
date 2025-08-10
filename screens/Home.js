@@ -5,9 +5,9 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 import Booking from "../components/Booking";
 import WhyChooseUs from "../components/whychooseus/WhyChooseUs";
 import EcoFriendlyAv from "../components/EcoFriendlyAv/EcoFriendlyAv";
+import Footer from "../components/Footer";
 
-
-export default function Home() {
+export default function Home({navigation}) {
   return (
     <ImageBackground
       source={require("../assets/Images/Bg-Image.jpg")}
@@ -31,6 +31,10 @@ export default function Home() {
 
         <View style={styles.LWrapper}>
           <EcoFriendlyAv />
+        </View>
+
+         <View style={styles.LWrapper}>
+          <Footer navigation={navigation}/>
         </View>
         
       </ScrollView>
