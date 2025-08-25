@@ -7,7 +7,7 @@ import Home from "../screens/Home";
 import AboutUs from "../screens/AboutUs";
 import SignIn from "../screens/SignIn";
 import Header from "../components/Header";
-
+import DisplayFlights from "../screens/DisplayFlights";
 
 const Drawer = createDrawerNavigator();
 
@@ -38,6 +38,14 @@ export default function DrawerNavigator() {
         component={SignIn}
         
       />
+
+      <Drawer.Screen
+        name="DisplayFlights"
+        component={DisplayFlights}
+        options={{ drawerItemStyle: { display: 'none' } }}
+      />
+
+      
 
       
       

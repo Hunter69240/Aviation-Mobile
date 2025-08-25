@@ -1,18 +1,23 @@
-import  react,{useState} from 'react';
-import { View, Text, StyleSheet,TouchableOpacity } from "react-native";
+import  react,{useState,useEffect} from 'react';
+import { View, Text, StyleSheet,TouchableOpacity,TextInput } from "react-native";
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import DateTimePicker  from '@react-native-community/datetimepicker';
 import Entypo from 'react-native-vector-icons/Entypo';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import CustomDropdown from "./CustomDropdown";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Booking() {
+  const navigation = useNavigation();
+  
   const [jetType,setJetType]=useState(null)
   const [tripType,setTripType]=useState(null)
 
   const [date, setDate] = useState(new Date());
   const [show, setShow] = useState(false);
+  const [from,Setfrom]=useState('')
+  const [to,Setto]=useState('')
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date; 
@@ -58,7 +63,7 @@ export default function Booking() {
 
         <View style={styles.triptype}>
 
-            <TouchableOpacity style={styles.text} title='Electric Jet' onPress={()=>setTripType('Oneway')}>
+            <TouchableOpacity style={styles.text} title='Electric Jet' onPress={()=>setTripType('OneWay')}>
               <Text style={[styles.text, tripType === 'OneWay' && styles.selectedText]}>One-Way</Text>
             </TouchableOpacity>
 
@@ -69,6 +74,25 @@ export default function Booking() {
             <TouchableOpacity style={styles.text} title='Electric Jet' onPress={()=>setTripType('MultiTrip')}>
               <Text style={[styles.text, tripType === 'MultiTrip' && styles.selectedText]}>Multi-Trip</Text>
             </TouchableOpacity>
+        </View>
+
+        <View>
+          <TextInput
+            style={styles.from}
+            placeholder="From (ex:JFK)"
+            placeholderTextColor="white"
+            value={from}
+            onChangeText={(text) => Setfrom(text)}
+          />
+
+          <TextInput
+            style={styles.to}
+            placeholder="To (ex:LAX)"
+            placeholderTextColor="white"
+            value={to}
+            onChangeText={(text) => Setto(text)}
+          />
+
         </View>
 
         <View style={styles.extradetails}>
@@ -130,7 +154,7 @@ export default function Booking() {
         
 
         <View style={styles.submit}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => {navigation.navigate('DisplayFlights')}}>
             <Text style={styles.text}>Search</Text>
           </TouchableOpacity>
         </View>
@@ -187,5 +211,17 @@ const styles = StyleSheet.create({
   selectedText:{
     color: 'yellow',  
     fontWeight: 'bold',
+  },
+  from:{
+    color:'white',
+    marginLeft:wp('5%'),
+    fontSize:16,
+    marginTop:hp('2%')
+  },
+  to:{
+    color:'white',
+    marginLeft:wp('5%'),
+    fontSize:16,
+    marginTop:hp('1%')
   }
 });
